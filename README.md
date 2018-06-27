@@ -2,6 +2,18 @@
 
 This is a "bare minimum" repo that shows one way to configure TypeScript Project References with lerna. There are a lot of different ways you can set things up and this isn't intended to be authoratitive guidance or exclusionary of other ways that might work better in your project.
 
+# Setting up this repo
+
+```
+> git clone https://github.com/RyanCavanaugh/learn-a.git
+> cd learn-a
+> npm install
+> lerna bootstrap
+> tsc -b packages
+```
+
+Note that you'll need a 3.0 version of `tsc` (currently available at `npm install -g typescript@next`).
+
 ### General Structure
 
 As with a normal lerna repo, there's a `packages` folder. Inside we have three creatively named packages `pkg1`, `pkg2`, and `pkg3`.
@@ -80,7 +92,7 @@ In `compilerOptions`, we've set `outDir` to `lib` and `rootDir` to `src`, then p
 
 In the `references` array, we list the paths to the other projects' `tsconfig.json` files (or containing folders, as shown here). This will both ensure that we locate the `.d.ts` files correctly, and set up a proper build ordering.
 
-### `packages/pkg2/src/index.ts`
+#### `packages/pkg2/src/index.ts`
 ```ts
 import * as p1 from '@ryancavanaugh/pkg1';
 
@@ -90,7 +102,7 @@ export function fn4() {
 ```
 Nothing unusual going on here. We import and export with the usual syntax. Notably, if you open this repo in an editor, you can still "Go to Definition (F12)" on `p1.fn` here and land in `pkg1/foo.ts` - the original sourcecode - even though "under the covers" it's using the much faster `.d.ts` file for typechecking.
 
-### `packages/pkg2/package.json`
+#### `packages/pkg2/package.json`
 Here are the relevant excerpts from the `package.json`:
 ```json
 {
@@ -109,7 +121,7 @@ Because we build to `lib`, we need to set `main` to the `.js` file there *and* `
 
 In `scripts`, we use the local copy of `tsc` (listed here as a dev dependency) to run a *build mode* compilation on the project. This will ensure that the `lib` folder is always built before `npm publish`, and blocks any publishes that try to push non-compiling code.
 
-### `packages/pkg2/.npmignore` / `packages/pkg2/.gitignore`
+#### `packages/pkg2/.npmignore` / `packages/pkg2/.gitignore`
 
 *.gitignore*
 ```
