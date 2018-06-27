@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ryancavanaugh/pkg2": "latest",
-    "typescript": "latest"
+    "@ryancavanaugh/pkg2": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^3.0.0-dev.20180626"
   }
 }
