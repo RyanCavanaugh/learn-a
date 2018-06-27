@@ -1,4 +1,6 @@
 {
+    "files": [],
+    "include": [],
     "references": [
         { "path": "pkg1" },
         { "path": "pkg2" },
