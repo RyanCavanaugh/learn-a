@@ -3,5 +3,8 @@
   "compilerOptions": {
     "outDir": "lib",
     "rootDir": "src"
-  }
+  },
+  "references": [
+    { "path": "../pkg1" }
+  ]
 }

@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "tsc -b ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@ryancavanaugh/pkg2": "latest",
-    "typescript": "^2.9.2"
+    "typescript": "latest"
   }
 }
