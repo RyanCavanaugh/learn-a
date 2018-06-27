@@ -1,6 +1,6 @@
 {
   "name": "@ryancavanaugh/pkg2",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ryancavanaugh/pkg1": "^3.0.0"
+    "@ryancavanaugh/pkg1": "^3.0.2"
   },
   "devDependencies": {
     "typescript": "^3.0.0-dev.20180626"
